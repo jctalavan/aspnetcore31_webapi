@@ -13,3 +13,16 @@ Para crear un proyecto de tipo web api utilizando la plantilla por defecto, abri
 Además, añadimos el fichero *.gitignore* para evitar subir ficheros innecesarios al repositorio de control de código (carpetas bin, obj, etc.). Para ello lo que hacemos es ejecutar la siguiente instrucción en el terminal:
 
     dotnet new gitignore
+
+## Incorporación de un contexto de base de datos
+
+El *contexto de base de datos* es la clase principal que coordina la funcionalidad de Entity Framework para un modelo de datos.
+
+Esta clase se crea derivándola de la clase *Microsoft.EntityFrameworkCore.DbContext*.
+
+Para poder trabajar con Entity Framework en nuestro proyecto ejecutamos en un terminal las siguientes instrucciones:
+
+    dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+    dotnet add package Microsoft.EntityFrameworkCore.InMemory
+
+Con estas intrucciones nos descargamos de Nuget los paquetes necesarios para poder trabajar con Entity Framework en nuestro proyecto.

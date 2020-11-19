@@ -6,10 +6,10 @@ namespace TodoApi.Services.negocio
 {
     public interface ITodoItemsService
     {
-        Task<IEnumerable<TodoItem>> GetTodoItems();
-        Task<TodoItem> GetTodoItem(long id);
-        Task PostTodoItem(TodoItem todoItem);
-        Task PutTodoItem(TodoItem todoItem);
-        Task<TodoItem> DeleteTodoItem(TodoItem todoItem);
+        Task<IEnumerable<TodoItemDto>> GetTodoItems();
+        Task<TodoItemDto> GetTodoItem(long id);
+        Task<TodoItemDto> CreateTodoItem(TodoItemDto todoItemDto);
+        Task UpdateTodoItem(TodoItemDto todoItemDto);
+        Task<TodoItemDto> DeleteTodoItem(TodoItemDto todoItemDto);
     }
 }

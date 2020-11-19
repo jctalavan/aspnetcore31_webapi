@@ -94,22 +94,19 @@ namespace TodoApi.Controllers
             return CreatedAtAction(nameof(GetTodoItem), new { id = todoItem.Id }, todoItem);
         }
 
-        // // DELETE: api/TodoItems/5
-        // [HttpDelete("{id}")]
-        // public async Task<ActionResult<TodoItem>> DeleteTodoItem(long id)
-        // {
-        //     var todoItem = await _context.TodoItems.FindAsync(id);
-        //     if (todoItem == null)
-        //     {
-        //         return NotFound();
-        //     }
+        // DELETE: api/TodoItems/5
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<TodoItem>> DeleteTodoItem(long id)
+        {
+            var todoItem = await _todoItemsService.GetTodoItem(id);
+            if (todoItem == null)
+            {
+                return NotFound();
+            }
 
-        //     _context.TodoItems.Remove(todoItem);
-        //     await _context.SaveChangesAsync();
+            TodoItem todoItemDeleted = await _todoItemsService.DeleteTodoItem(todoItem);
 
-        //     return todoItem;
-        // }
-
-
+            return todoItemDeleted;
+        }
     }
 }

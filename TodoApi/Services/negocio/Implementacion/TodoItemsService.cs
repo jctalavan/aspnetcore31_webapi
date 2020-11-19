@@ -24,9 +24,10 @@ namespace TodoApi.Services.negocio.Implementacion
 
         public async Task<TodoItem> GetTodoItem(long id)
         {
+            //Find vs Where + First OR Where + Single OR First/Single: https://stackoverflow.com/questions/9335015/find-vs-where-firstordefault
+
             TodoItem response = await _context.TodoItems
-                .Where(item => item.Id == id)
-                .SingleOrDefaultAsync(); //devuelve the entity found, or null.
+                .SingleOrDefaultAsync(item => item.Id == id); //devuelve the entity found, or null.
 
             return response;
         }
@@ -52,10 +53,12 @@ namespace TodoApi.Services.negocio.Implementacion
             }
         }
 
-        private bool TodoItemExists(long id)
+        public async Task<TodoItem> DeleteTodoItem(TodoItem todoItem)
         {
-            return _context.TodoItems
-                .Any(x => x.Id == id);
+            _context.TodoItems.Remove(todoItem);
+            await _context.SaveChangesAsync();
+
+            return todoItem;
         }
     }
 }

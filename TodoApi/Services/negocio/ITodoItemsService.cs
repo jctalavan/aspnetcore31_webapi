@@ -10,5 +10,6 @@ namespace TodoApi.Services.negocio
         Task<TodoItem> GetTodoItem(long id);
         Task PostTodoItem(TodoItem todoItem);
         Task PutTodoItem(TodoItem todoItem);
+        Task<TodoItem> DeleteTodoItem(TodoItem todoItem);
     }
 }

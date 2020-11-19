@@ -55,3 +55,12 @@ Instalar el motor de scaffolding: **(dotnet-aspnet-codegenerator)**
 Una vez instaladas estas herramientas, podremos crear un controlador realizando scaffolding con la siguiente sentencia:
 
     dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext -outDir Controllers
+
+Para tener algo más claro los tipos de respuesta que puede tener una acción de un controller de un web api es interesante leer la siguiente documentación:
+
+<https://docs.microsoft.com/es-es/aspnet/core/web-api/action-return-types?view=aspnetcore-3.1>
+
+Para más info sobre enrutamiento:
+
+<https://docs.microsoft.com/es-es/aspnet/core/mvc/controllers/routing?view=aspnetcore-3.1>
+<https://docs.microsoft.com/es-es/aspnet/core/mvc/models/model-binding?view=aspnetcore-3.1>

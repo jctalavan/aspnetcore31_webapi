@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TodoApi.Services.bbdd;
+using TodoApi.Services.negocio;
+using TodoApi.Services.negocio.Implementacion;
 
 namespace TodoApi
 {
@@ -23,6 +25,8 @@ namespace TodoApi
             services.AddDbContext<TodoContext>(optionsBuilder => {
                 optionsBuilder.UseInMemoryDatabase(databaseName: "TodoList"); // Especifica que el contexto de base de datos usará una base de datos en memoria.
             });
+
+            services.AddScoped<ITodoItemsService, TodoItemsService>();
 
             services.AddControllers();
         }

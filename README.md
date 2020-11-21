@@ -64,3 +64,27 @@ Para más info sobre enrutamiento:
 
 <https://docs.microsoft.com/es-es/aspnet/core/mvc/controllers/routing?view=aspnetcore-3.1>
 <https://docs.microsoft.com/es-es/aspnet/core/mvc/models/model-binding?view=aspnetcore-3.1>
+
+## Añadir OpenApi (Swagger)
+
+Para documentar qué funcionalidades tiene nuestra API REST nos vamos a ayudar de Swagger/OpenAPI y la implementación *Swashbuckle*.
+
+Muy básicamente, *Swagger* utiliza 3 paquetes *Nuget*:
+
+* *Swashbuckle.AspNetCore.SwaggerGen*: genera objetos *SwaggerDocument* a partir de las rutas, controladores y modelos (y su documentación).
+* *Swashbuckle.AspNetCore.Swagger*: tiene un middleware que permite exponer esos objetos *SwaggerDocument* como puntos de conexión JSON.
+* *Swashbuckle.AspNetCore.SwaggerUI*: herramienta de interfaz de usuario de *Swagger*. Interpreta el JSON de Swagger para crear una experiencia enriquecida y personalizable para describir la funcionalidad de la API web.
+
+### Agregar y configurar el middleware de Swagger
+
+Instalar los paquetes necesarios ejecutando el comando:
+
+    dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.5.0
+
+Una vez instalados los paquetes anteriores ya podremos configurar *Swagger* en nuestra clase *Startup*.
+
+Para ampliar la información acerca de OpenAPI y su configuración, visitar los siguientes recursos:
+
+[OpenAPI](https://docs.microsoft.com/es-es/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-3.1)
+
+[Introducción a Swashbuckle](https://docs.microsoft.com/es-es/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-3.1&tabs=visual-studio-code)

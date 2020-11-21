@@ -9,6 +9,7 @@ using TodoApi.Services.negocio;
 
 namespace TodoApi.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class TodoItemsController : ControllerBase
@@ -53,6 +54,9 @@ namespace TodoApi.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> UpdateTodoItem(long id, TodoItemDto todoItemDto)
         {
             if (id != todoItemDto.Id)
@@ -94,8 +98,16 @@ namespace TodoApi.Controllers
             return CreatedAtAction(nameof(GetTodoItem), new { id = todoItemDtoCreated.Id }, todoItemDtoCreated);
         }
 
-        // DELETE: api/TodoItems/5
-        [HttpDelete("{id}")]
+
+
+        /// <summary>
+        /// Borrar un item.
+        /// </summary>
+        /// <param name="id">Id del item que se desea borrar.</param>
+        /// <returns>El item borrado.</returns>
+        [HttpDelete("{id}")] // DELETE: api/TodoItems/5
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<TodoItemDto>> DeleteTodoItem(long id)
         {
             var item = await _todoItemsService.GetTodoItem(id);

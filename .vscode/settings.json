@@ -1,0 +1,5 @@
+{
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "TodoApi\\bin\\Release\\netcoreapp3.1\\publish",
+    "appService.defaultWebAppToDeploy": "/subscriptions/5024f13c-cd8d-4d4d-834e-fc505780f7cc/resourceGroups/FakeTechEnterprise/providers/Microsoft.Web/sites/aspnetcore31webapi"
+}

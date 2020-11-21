@@ -21,9 +21,11 @@ jobs:
         dotnet-version: '3.1.102'
 
     - name: Build with dotnet
+      working-directory: ./TodoApi
       run: dotnet build --configuration Release
 
     - name: dotnet publish
+      working-directory: ./TodoApi
       run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
     - name: Deploy to Azure Web App
@@ -32,4 +34,4 @@ jobs:
         app-name: 'aspnetcore31webapi'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_3fbcfc222fa0468796a6e7e802bbb232 }}
-        package: ${{env.DOTNET_ROOT}}/myapp 
+        package: ${{env.DOTNET_ROOT}}/myapp

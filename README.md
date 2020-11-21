@@ -79,7 +79,7 @@ Muy básicamente, *Swagger* utiliza 3 paquetes *Nuget*:
 
 Instalar los paquetes necesarios ejecutando el comando:
 
-    dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.5.0
+    dotnet add package Swashbuckle.AspNetCore -v 5.5.0
 
 Una vez instalados los paquetes anteriores ya podremos configurar *Swagger* en nuestra clase *Startup*.
 
